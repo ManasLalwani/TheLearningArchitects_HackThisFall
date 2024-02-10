@@ -26,6 +26,9 @@ module.exports = {
       green:"#16a34a",
       indigo: "#1e1b4b",
       "bodyColor" : "#959CB1",
+      gray400: "#9ca3af",
+      gray300: "#d1d5db",
+      slate300:"#d4d4d8",
     },
     screens: {
       xs: "450px",

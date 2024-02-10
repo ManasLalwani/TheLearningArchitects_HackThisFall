@@ -9,7 +9,9 @@ const page = () => {
     <>
       <Breadcrumb
         pageName="Meeting "
-        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In varius eros eget sapien consectetur ultrices. Ut quis dapibus libero."
+        description="In case of more complex problems which require a personal assistance, schedule a meeting with the closest lawyer or advocate and get expert advice from them. For offline assistance from the advocates near you, use our lawyer locator feature and get all your issues resolved!"
+
+        // description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In varius eros eget sapien consectetur ultrices. Ut quis dapibus libero."
       />
 
       <section className="pt-[120px] pb-[120px]">
