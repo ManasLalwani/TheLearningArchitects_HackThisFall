@@ -278,40 +278,64 @@ const Summarize = () => {
   const handlePdfFileSubmit = async (e) => {
     e.preventDefault();
     // handleScrollClick();
-    if (pdfFile !== null) {
-      setViewPdf(pdfFile);
-      console.log(file);
-      const formData = new FormData();
-      formData.append("filetype", "pdf");
-      formData.append("files", file);
-      // formData.append("embed_model", "HF")
-      formData.append("embed_model", "Openai");
-      formData.append("llm_model", "Openai");
-      formData.append("ocr", "false");
+    // if (pdfFile !== null) {
+    //   setViewPdf(pdfFile);
+    //   console.log(file);
+    //   const formData = new FormData();
+    //   formData.append("filetype", "pdf");
+    //   formData.append("files", file);
+    //   // formData.append("embed_model", "HF")
+    //   formData.append("embed_model", "Openai");
+    //   formData.append("llm_model", "Openai");
+    //   formData.append("ocr", "false");
 
-      setoutput("Proccessing the Document....");
-      try {
-        console.log("hello");
-        console.log(formData);
-        const response = await fetch("http://localhost:8000/process", {
-          method: "POST",
-          body: formData,
-        });
-        console.log("bye");
-        const data = await response.json();
-        console.log(data.response);
-        setoutput(data.response);
-      } catch (error) {
-        console.error(error);
-        setoutput("Error Proccessing the pdf");
-        return;
-      }
+    //   setoutput("Proccessing the Document....");
+    //   try {
+    //     console.log("hello");
+    //     console.log(formData);
+    //     const response = await fetch("http://localhost:8000/process", {
+    //       method: "POST",
+    //       body: formData,
+    //     });
+    //     console.log("bye");
+    //     const data = await response.json();
+    //     console.log(data.response);
+    //     setoutput(data.response);
+    //   } catch (error) {
+    //     console.error(error);
+    //     setoutput("Error Proccessing the pdf");
+    //     return;
+    //   }
+    //   setFile(null);
+    //   // setPdfFile(null);
+    // } else {
+    //   setViewPdf(null);
+    //   setFile(null);
+    //   setPdfFile(null);
+    // }
+    const [file, setFile] = useState(null);
+
+  const onDrop = (acceptedFiles) => {
+    setFile(acceptedFiles[0]); // Assuming single file upload
+  };
+
+  const handleUpload = async () => {
+    // Send the file to your backend API endpoint
+    const formData = new FormData();
+    formData.append('file', file);
+
+    const response = await fetch('http://localhost:8000/process', {
+      method: 'POST',
+      body: formData,
+    });
+
+    if (response.ok) {
+      // Handle successful upload (e.g., show a success message)
+      console.log('File uploaded successfully!');
       setFile(null);
-      // setPdfFile(null);
     } else {
-      setViewPdf(null);
-      setFile(null);
-      setPdfFile(null);
+      // Handle upload error (e.g., show an error message)
+      console.error('Error uploading file:', response.statusText);
     }
   };
 
@@ -518,5 +542,5 @@ const Summarize = () => {
     </>
   );
 };
-
+}
 export default Summarize;

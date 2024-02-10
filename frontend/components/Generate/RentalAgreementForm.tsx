@@ -13,7 +13,6 @@ const RentalAgreementForm = () => {
 
   const formData = useFormik({
     initialValues: {
-      value:"type1",
       agreementCity: "",
       agreementState: "",
       agreementDate: "",
@@ -46,7 +45,7 @@ const RentalAgreementForm = () => {
         <div className="container">
           <div className="-mx-4 flex flex-wrap">
             <div className="w-full px-4">
-              <div className="mx-auto rounded-md bg-primary bg-opacity-10 py-10 px-6 dark:bg-dark sm:p-[60px]">
+              <div className="mx-auto rounded-md bg-primary bg-opacity-5 py-10 px-6 dark:bg-dark sm:p-[60px]">
                 <h3 className="mb-3 text-center text-2xl font-bold text-black dark:text-white sm:text-3xl">
                   Enter your details
                 </h3>
