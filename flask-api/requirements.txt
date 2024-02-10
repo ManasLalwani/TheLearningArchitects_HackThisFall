@@ -1,0 +1,6 @@
+pytesseract
+flask
+pillow
+PyPDF2
+docx
+fitz
