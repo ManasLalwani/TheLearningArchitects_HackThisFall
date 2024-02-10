@@ -24,6 +24,7 @@
     "jodit-react": "^1.3.39",
     "jspdf": "^2.5.1",
     "next": "13.1.6",
+    "next-navigation": "^1.0.6",
     "next-themes": "^0.2.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",

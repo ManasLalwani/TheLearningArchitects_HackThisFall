@@ -3,17 +3,20 @@
 import Link from "next/link";
 import { useState } from "react";
 import {auth} from "./firebaseConfig"
+import { useRouter } from "next/navigation";
+
 import { signInWithEmailAndPassword , signOut} from "firebase/auth";
 const SigninPage = () => {
   const [email,setEmail]= useState("")
   const [password,setPassword]= useState("")
-
+const router = useRouter();
 
   const signin = (e)=>{
     e.preventDefault();
     signInWithEmailAndPassword(auth,email,password).then((data)=>{
-      console.log(data,"authData")
-      alert("signin successfully")
+      console.log(data,"authData");
+      alert("signin successfully");
+      router.push("/");
     })
   }
 

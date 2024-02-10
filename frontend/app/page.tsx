@@ -8,10 +8,10 @@ import Hero from "@/components/Hero";
 import Pricing from "@/components/Pricing";
 import Testimonials from "@/components/Testimonials";
 import Video from "@/components/Video";
-import ChatBot from "@/components/ChatBot";
+// import ChatBot from "@/components/ChatBot";
 
 import { Inter } from "@next/font/google";
-import GenerateSectionOne from "@/components/Generate/GenerateSectionOne";
+// import GenerateSectionOne from "@/components/Generate/GenerateSectionOne";
 import AboutSectionOne from "@/components/About/AboutSectionOne";
 // import GenerateSectionTwo from "@/components/Generate/GenerateSectionTwo";
 
@@ -31,7 +31,7 @@ export default function Home() {
       <Pricing />
       {/* <Blog /> */}
       <Contact />
-      <ChatBot />
+      {/* <ChatBot /> */}
     </>
   );
 }

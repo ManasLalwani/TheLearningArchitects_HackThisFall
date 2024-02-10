@@ -3,7 +3,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import Breadcrumb from "@/components/Common/Breadcrumb";
 import Link from "next/link";
-import Chatbot from "./chatbox";
+// import Chatbot from "./chatbox";
 import { pdfjs } from "react-pdf";
 pdfjs.GlobalWorkerOptions.workerSrc =
   "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js";
@@ -502,11 +502,7 @@ const Summarize = () => {
                     </div>
 
                     <h1 className="p-3 text-2xl">AI Output: </h1>
-                    <div className="rounded border">
-                      <Chatbot
-                        text={output ? output : "Hello! Ask Me Anything ?"}
-                      />
-                    </div>
+                    
                   </div>
                 </div>
               )}
