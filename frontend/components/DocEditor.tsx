@@ -1,99 +1,11 @@
-import React, { useState, useRef , useEffect} from "react";
-import JoditEditor from "jodit-react";
-import { rentalAgreementFormat } from "../templates/rental";
-import {freelanceContractFormat} from "../templates/freelance";
-import {powerOfAttorneyFormat} from "../templates/attorney";
-import {divorceAgreementFormat} from "../templates/divorce";
-import {houseSaleAgreementFormat} from "../templates/housesale";
-import {loanAgreementFormat} from "../templates/loan";
-
-import jsPDF from "jspdf";
-
-const DocEditor = ({ selectedOption, formData }) => {
-  const [content, setContent] = useState("");
-
-  // Function to render different templates based on selected option
-  const renderContent = () => {
-    switch (selectedOption) {
-      case "type1":
-        return renderAgreement(rentalAgreementFormat);
-        // console.log(rentalAgreementFormat);
-
-      case "type2":
-        return renderAgreement(powerOfAttorneyFormat);
-        // return <PowerOfAttorneyForm />;
-        
-      case "type3":
-        return renderAgreement(divorceAgreementFormat);
-        // return <DivorceAgreementForm />;        
-      case "type4":
-        return renderAgreement(loanAgreementFormat);
-        // return <LoanAgreementForm />;
-      case "type5":
-        return renderAgreement(houseSaleAgreementFormat);
-        // return <HouseSaleAgreementForm />;
-      case "type6":
-        return renderAgreement(freelanceContractFormat);
-      
-
-        // console.log(freelanceContractFormat);
-      // Add cases for other template formats
-      default:
-        return ""; // Render nothing if no option is selected
-    }
-  };
-
-  // Function to replace placeholders with actual data
-  const renderAgreement = (agreementFormat) => {
-    let agreementText = agreementFormat;
-    for (const key in formData) {
-      if (formData.hasOwnProperty(key)) {
-        const placeholder = `{${key}}`;
-        agreementText = agreementText.replace(
-          new RegExp(placeholder, "g"),
-          formData[key]
-        );
-      }
-    }
-    return agreementText;
-  };
-
-  // Initialize content with the rendered template
-  useEffect(() => {
-    setContent(renderContent());
-  }, [selectedOption, formData]);
-
-  const generatePdf = () => {
-    const doc = new jsPDF("p", "pt", "a4");
-    doc.html(content, {
-      callback: function (doc) {
-        doc.save("generated.pdf");
-      },
-      x: 10,
-      y: 10,
-      margin: [10, 10, 10, 10],
-    });
-  };
-
-  return (
-    <div>
-      <JoditEditor
-        value={content}
-        onChange={(newContent) => setContent(newContent)}
-      />
-      <button onClick={() => generatePdf()}>Download PDF</button>
-    </div>
-  );
-};
-
-export default DocEditor;
-
-
 // "use client";
 // import React, { useState, useRef, useMemo } from "react";
 // import JoditEditor from "jodit-react";
 // import { rentalAgreementFormat } from "../templates/rental";
-// import {freelanceContractFormat} from "../templates/freelance";
+// import { powerOfAttorneyFormat } from "../templates/attorney";
+// import { divorceAgreementFormat } from "../templates/divorce";
+// import { loanAgreementFormat } from "../templates/loan";
+// import { houseSaleAgreementFormat } from "../templates/housesale";
 // import jsPDF from "jspdf";
 // import axios from "axios";
 
@@ -437,3 +349,179 @@ export default DocEditor;
 // };
 
 // export default DocEditor;
+
+
+
+
+"use client";
+import React, { useState, useRef, useMemo, useEffect } from "react";
+import JoditEditor from "jodit-react";
+import { rentalAgreementFormat } from "../templates/rental";
+import { powerOfAttorneyFormat } from "../templates/attorney";
+import { divorceAgreementFormat } from "../templates/divorce";
+import { loanAgreementFormat } from "../templates/loan";
+import { houseSaleAgreementFormat } from "../templates/housesale";
+
+
+
+
+import jsPDF from "jspdf";
+import axios from "axios";
+
+const DocEditor = ({ doc }) => {
+  const editor = useRef(null);
+  const [content, setContent] = useState("");
+  const [formData, setFormData] = useState(doc);
+  const [documentFormat, setDocumentFormat] = useState("");
+  const [selectedOption, setSelectedOption] = useState("hi");
+
+  const handleSelectChange = (event) => {
+    setSelectedOption(event.target.value);
+  };
+  
+  useEffect(() => {
+    const handleDocumentTypeChange = (doc) => {
+      // Set the document format based on the selected document type
+      if (doc.type == "rental") {
+        setDocumentFormat(rentalAgreementFormat);
+      } else if (doc.type == "attorney") {
+        setDocumentFormat(powerOfAttorneyFormat);
+      } else if (doc.type == "divorce") {
+        setDocumentFormat(divorceAgreementFormat);
+      } else if (doc.type == "loan") {
+        setDocumentFormat(loanAgreementFormat);
+      } else if (doc.type == "housesale") {
+        setDocumentFormat(houseSaleAgreementFormat);
+      }
+    };
+
+    handleDocumentTypeChange(doc);
+
+    
+  }, [])
+
+  useEffect(() => {console.log(documentFormat)
+    // Function to replace placeholders with actual data
+    const renderAgreement = (documentFormat) => {
+    let agreementText = documentFormat;
+    for (const key in formData) {
+      if (formData.hasOwnProperty(key)) {
+        const placeholder = `{${key}}`;
+        agreementText = agreementText.replace(
+          new RegExp(placeholder, "g"),
+          formData[key]
+        );
+      }
+    }
+    return agreementText;
+  };
+
+
+    setContent(renderAgreement(documentFormat))}, [documentFormat])
+
+
+    // console.log(content)
+  const generatePdf = () => {
+    // const pdf = new jsPDF();
+    // pdf.html(content);
+    // pdf.save("generated.pdf");
+
+    // console.log(content);
+
+    var doc = new jsPDF("p", "pt", "a4");
+
+    doc.html(
+      `<div style='font-size:11px; border:1px solid; background-color: rgb(239 240 240); padding: 50px 45px; width:28vw;'>${content}</div>`,
+      {
+        callback: function (doc) {
+          doc.save("generated.pdf");
+        },
+        x: 10,
+        y: 10,
+        margin: [10, 10, 10, 10],
+      }
+    );
+  };
+
+  const generateTranslatedPdf = async () => {
+    // const formData = new FormData();
+    // formData.append("text", content.substring(1, content.length-1));
+    // formData.append("lang", "hi");
+    //   for (const value of formData.values()) {
+    //   console.log(value);
+    // }
+    //   return;
+    const requestData = {
+      text: content.substring(1, content.length - 1),
+      lang: "hi",
+    };
+    try {
+      // const response = await fetch("http://localhost:8000/convert-text", {
+      //   method: "POST",
+      //   headers: {
+      //     "Content-Type": "application/x-www-form-urlencoded",
+      //   },
+      //   body: JSON.stringify(requestData),
+      // });
+      // const data = await response.json();
+      // console.log(data.response);
+
+      await axios({
+        method: "post",
+        url: "http://localhost:8000/convert-text",
+        data: requestData,
+        headers: { "Content-Type": "multipart/form-data" },
+      })
+        .then(function (response) {
+          //handle success
+          console.log(response);
+        })
+        .catch(function (response) {
+          //handle error
+          console.log(response);
+        });
+
+      var doc = new jsPDF("p", "pt", "a4");
+
+      doc.html(
+        `<div style='font-size:11px; border:1px solid; background-color: rgb(239 240 240); padding: 50px 45px; width:28vw;'>${content}</div>`,
+        {
+          callback: function (doc) {
+            doc.save("generated.pdf");
+          },
+          x: 10,
+          y: 10,
+          margin: [10, 10, 10, 10],
+        }
+      );
+    } catch (error) {
+      console.error(error);
+      return;
+    }
+  };
+
+  return (
+    <div>
+      <JoditEditor
+        ref={editor}
+        value={content}
+        // config={config}
+        // tabIndex={1} // tabIndex of textarea
+        // onBlur={(newContent) => setContent(newContent)} // preferred to use only this option to update the content for performance reasons
+        onChange={(newContent) => {
+          setContent(newContent);
+          // console.log(newContent);
+        }}
+      />
+
+      <button
+        onClick={() => generatePdf()}
+        className="mt-10 flex w-full items-center justify-center rounded-md bg-primary py-4 px-9 text-base font-medium text-white transition duration-300 ease-in-out hover:bg-opacity-80 hover:shadow-signUp"
+      >
+        Download PDF
+      </button>
+    </div>
+  );
+};
+
+export default DocEditor;
