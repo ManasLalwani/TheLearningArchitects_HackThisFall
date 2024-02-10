@@ -13,6 +13,7 @@ const LoanAgreementForm = () => {
 
   const formData = useFormik({
     initialValues: {
+      value:"type4",
         type: "loan",
         lenderName: "",
         borrowerName: "",
