@@ -13,6 +13,7 @@ const RentalAgreementForm = () => {
 
   const formData = useFormik({
     initialValues: {
+      value:"type1",
       agreementCity: "",
       agreementState: "",
       agreementDate: "",

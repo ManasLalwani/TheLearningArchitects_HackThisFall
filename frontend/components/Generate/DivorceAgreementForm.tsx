@@ -13,6 +13,7 @@ const DivorceAgreementForm = () => {
 
   const formData = useFormik({
     initialValues: {
+      value:"type3",
       type: "divorce",
       agreementState: "",
       agreementDate: "",

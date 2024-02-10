@@ -3,7 +3,9 @@ import Breadcrumb from "@/components/Common/Breadcrumb";
 import DocEditor from "@/components/DocEditor";
 
 const ContactPage = ({ params, searchParams }) => {
-  console.log(searchParams);
+  const { selectedOption, formData } = searchParams;
+  console.log(searchParams.value);
+
   return (
     <>
       <Breadcrumb
@@ -12,7 +14,8 @@ const ContactPage = ({ params, searchParams }) => {
       />
 
       <div className="container">
-        <DocEditor doc={searchParams} />
+      <DocEditor selectedOption={searchParams.value} formData={searchParams} />
+        {/* <DocEditor doc={searchParams} /> */}
       </div>
     </>
   );
