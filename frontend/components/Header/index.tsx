@@ -91,7 +91,7 @@ const Header = () => {
                     src="https://res.cloudinary.com/dbqqvw3gf/image/upload/v1694777447/SIH%20assets/Carousel_Hack-a-talk_fxatqc.png"
                     alt=""
                   />
-                  <h1 className="{kanit.className} kanit font-extrabold text-white ">
+                  <h1 className="{kanit.className} kanit font-extrabold text-dark ">
                     LegalWiseAI
                   </h1>
                   {/* <img

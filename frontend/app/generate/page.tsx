@@ -6,7 +6,7 @@ const GeneratePage = () => {
     <>
       <Breadcrumb
         pageName="Generate New Documents"
-        description="Streamline legal paperwork with our instant document generator – Your legal documents, simplified."
+        description="Create and edit your legal documents with efficiency and ease while adhering to the format approved by the Indian Government. Edit the format as per requirement."
       />
       <GenerateSectionOne />
     </>

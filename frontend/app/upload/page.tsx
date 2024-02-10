@@ -151,7 +151,7 @@ const Upload = () => {
     return (
       <tr
         key={item.filename}
-        className="bg-white border-b dark:bg-gray-200 text-black dark:border-gray-400 hover:bg-gray-50 dark:hover:bg-gray-300"
+        className="bg-grey border-b dark:bg-gray-200 text-black dark:border-gray-400 hover:bg-gray-50 dark:hover:bg-gray-300"
       >
         <td className="py-4 px-6">{item.filename}</td>
         <th
@@ -196,7 +196,7 @@ const Upload = () => {
                 <div className="bg-slate-950 mx-auto w-[70rem] rounded-lg border p-2">
                   <div
                     className={`${
-                      dragging ? "bg-gray-700" : "bg-slate-950"
+                      dragging ? "bg-gray-200" : "bg-slate-200"
                     } h-[20rem] rounded-md border-2 border-dashed border-white p-4`}
                     onDragEnter={handleDragEnter}
                     onDragLeave={handleDragLeave}
@@ -206,13 +206,13 @@ const Upload = () => {
                     <form>
                       <div className="flex flex-col items-center justify-center space-y-2">
                         <img
-                          src="/folders.png"
-                          className="my-5 h-[3rem] w-[3rem]"
+                          src="/folder3.png"
+                          className="my-2 h-[5rem] "
                         />
                         <div>
                           <div
                             onClick={() => setIsList(!isList)}
-                            className="hover:bg-gray-700 flex cursor-pointer items-center justify-between rounded border p-4 text-sm font-medium leading-none text-white"
+                            className="hover:bg-gray-200 flex cursor-pointer items-center justify-between rounded border p-4 text-sm font-medium leading-none text-dark dark:text-white"
                           >
                             {filename ? `${filename}` : `CHOOSE FILE`}
                             <div className="ml-2">
@@ -227,7 +227,7 @@ const Upload = () => {
                                   >
                                     <path
                                       d="M5.00016 0.666664L9.66683 5.33333L0.333496 5.33333L5.00016 0.666664Z"
-                                      fill="#FFFFFF"
+                                      fill="#1D2144"
                                     />
                                   </svg>
                                 </div>
@@ -242,7 +242,7 @@ const Upload = () => {
                                   >
                                     <path
                                       d="M5.00016 5.33333L0.333496 0.666664H9.66683L5.00016 5.33333Z"
-                                      fill="#FFFFFF"
+                                      fill="#1D2144"
                                     />
                                   </svg>
                                 </div>
@@ -250,7 +250,7 @@ const Upload = () => {
                             </div>
                           </div>
                           {isList && (
-                            <div className="border-gray-300 mt-2 w-44 rounded border bg-[#121416] p-2 shadow">
+                            <div className="border-grey mt-2 w-44 rounded border bg-gray300 p-2 shadow">
                               {/* <label> */}
                               {/* <input type="file" className='hidden' /> */}
                               <label htmlFor="file-input">
@@ -260,11 +260,11 @@ const Upload = () => {
                                   className="hidden"
                                   onChange={handlePdfFileChange}
                                 />
-                                <div className="hover:bg-gray-700 border-gray-300 my-1 w-full rounded-md border py-3 pl-9 text-sm font-medium leading-3">
+                                <div className="bg-gray300 hover:bg-gray400 border-2 border-gray400 my-1 w-full rounded-md  py-3 pl-9 text-sm font-medium leading-3">
                                   From Device
                                 </div>
                               </label>
-                              <button className="hover:bg-gray-700 border-gray-300 my-1 w-full rounded-md border py-3 text-sm font-medium leading-3">
+                              <button className="bg-gray300 hover:bg-gray400 border-2 border-gray400  my-1 w-full rounded-md  py-3 text-sm font-medium leading-3">
                                 From Google Drive
                               </button>
                             </div>
@@ -273,7 +273,7 @@ const Upload = () => {
                             <button
                               onClick={handleUpload}
                               type="button"
-                              className="rounded-lg border from-green-400 to-blue-600 focus:ring-green-200 dark:focus:ring-green-800 ml-4 mt-5 mr-2 mb-2 w-[9rem] bg-gradient-to-br px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-slate-600 focus:outline-none focus:ring-4"
+                              className="rounded-lg border from-green-400 to-blue-600 focus:ring-green-200 dark:focus:ring-green-800 ml-4 mt-5 mr-2 mb-2 w-[9rem] bg-gradient-to-br px-5 py-2.5 text-center text-sm font-medium text-dark hover:bg-slate-600 focus:outline-none focus:ring-4"
                             >
                               Upload
                             </button>
@@ -300,7 +300,7 @@ const Upload = () => {
         <div className="overflow-x-auto relative shadow-md sm:rounded-lg mx-20 my-20">
           <h1 className="mb-8 text-lg text-center">Previously uploaded documents</h1>
           <table className="w-full text-sm text-left text-black dark:text-gray-400">
-            <thead className="text-xs text-white dark:border-gray-400 uppercase bg-white dark:bg-gray-200 dark:text-black">
+            <thead className="text-xs text-dark dark:border-gray-400 uppercase bg-white dark:bg-gray-200 dark:text-black">
               <tr>
                 <th scope="col" className="py-3 px-6">
                   Document
