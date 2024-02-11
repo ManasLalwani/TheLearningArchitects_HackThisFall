@@ -13,6 +13,7 @@ const PowerOfAttorneyForm = () => {
 
   const formData = useFormik({
     initialValues: {
+      value:"type2",
         grantorName: "",
         fathersName: "",
         grantorAge: "",
