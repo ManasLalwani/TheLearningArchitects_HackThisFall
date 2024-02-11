@@ -55,7 +55,7 @@ LegalWiseAI revolutionizes the legal industry by providing users with a comprehe
 
 To start using LegalWiseAI locally:
 
-1. Clone the repository: `git clone https://github.com/your-username/legalwiseai.git`
+1. Clone the repository: `git clone https://github.com/ManasLalwani/TheLearningArchitects_HackThisFall.git`
 2. Install dependencies: `npm install`
 3. Start the development server: `npm run dev`
 
