@@ -9,7 +9,7 @@ const menuData: Menu[] = [
   },
   {
     id: 2,
-    title: "Dashboard",
+    title: "Digital Signature",
     path: "/upload",
     newTab: false,
   },
@@ -19,12 +19,12 @@ const menuData: Menu[] = [
     path: "/generate",
     newTab: false,
   },
-  {
-    id: 4,
-    title: "Summarize",
-    path: "/summarize",
-    newTab: false,
-  },
+  // {
+  //   id: 4,
+  //   title: "Summarize",
+  //   path: "/summarize",
+  //   newTab: false,
+  // },
   {
     id: 5,
     title: "Advisory Portal",

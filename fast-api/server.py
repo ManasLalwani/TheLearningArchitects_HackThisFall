@@ -4,13 +4,13 @@ import uvicorn
 from fastapi import FastAPI, Request, File, UploadFile, Form
 from fastapi.responses import FileResponse
 from fastapi.middleware.cors import CORSMiddleware
-from llama_index import GPTVectorStoreIndex, SimpleDirectoryReader, GPTListIndex
+# from llama_index import GPTVectorStoreIndex, SimpleDirectoryReader, GPTListIndex
 # QuestionAnswerPrompt
-from llama_index.indices.composability import ComposableGraph
+# from llama_index.indices.composability import ComposableGraph
 
 from pydantic import BaseModel
 from typing import Annotated, List
-from llama_index import download_loader, ServiceContext
+# from llama_index import download_loader, ServiceContext
 from PyPDF2 import PdfMerger
 
 
@@ -30,7 +30,7 @@ import os
 
 # Custom modules
 # import embeddings
-from llama_index.embeddings import LangchainEmbedding
+# from llama_index.embeddings import LangchainEmbedding
 
 #####
 

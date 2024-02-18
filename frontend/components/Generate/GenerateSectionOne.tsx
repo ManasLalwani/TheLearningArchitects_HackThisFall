@@ -6,6 +6,8 @@ import PowerOfAttorneyForm from "./PowerOfAttorneyForm";
 import DivorceAgreementForm from "./DivorceAgreementForm";
 import LoanAgreementForm from "./LoanAgreementForm";
 import HouseSaleAgreementForm from "./HouseSaleAgreementForm";
+import FreelanceContractForm from "./FreelanceContractForm";
+
 
 
 // import { useState } from "react";
@@ -37,6 +39,8 @@ const GenerateSectionOne = () => {
         return <LoanAgreementForm />;
       case "type5":
         return <HouseSaleAgreementForm />;
+      case "type6":
+        return <FreelanceContractForm />;
       default:
         return null; // Render nothing if no option is selected
     }
@@ -106,6 +110,12 @@ const GenerateSectionOne = () => {
                         className="flex cursor-pointer items-center justify-between py-2 text-base text-dark group-hover:opacity-70 dark:text-white lg:mr-0 lg:inline-flex lg:py-6 lg:px-0"
                       >
                         House Sale Agreement
+                      </option>
+                      <option
+                        value="type6"
+                        className="flex cursor-pointer items-center justify-between py-2 text-base text-dark group-hover:opacity-70 dark:text-white lg:mr-0 lg:inline-flex lg:py-6 lg:px-0"
+                      >
+                        Freelance Agreement
                       </option>
                       {/* <option value="type3">Type 3</option> */}
                     </select>

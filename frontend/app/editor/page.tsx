@@ -8,7 +8,7 @@ const ContactPage = ({ params, searchParams }) => {
     <>
       <Breadcrumb
         pageName="Edit Document"
-        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In varius eros eget sapien consectetur ultrices. Ut quis dapibus libero."
+        description="Modify text, images, and formatting within a document, providing flexibility for revisions and updates without recreating the entire file. Offering in-place modifications directly within the document interface."
       />
 
       <div className="container">

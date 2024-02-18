@@ -114,7 +114,7 @@ const Upload = () => {
         .then((downloadURL) => {
           console.log("Download URL", downloadURL);
           setFileUrl(downloadURL);
-          setMessage("Uploaded Url 👉🏼 :"+ downloadURL);
+          setMessage("Uploaded Url :"+ downloadURL);
         });
     } catch (error) {
       console.error("Error uploading file:", error);

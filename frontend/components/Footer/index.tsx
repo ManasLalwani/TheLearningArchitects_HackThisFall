@@ -206,7 +206,7 @@ const Footer = () => {
             <p className="text-body-color text-center text-base dark:text-white">
               Creation of {" "}
               <a href="https://nextjstemplates.com" rel="nofollow noopener">
-                team Ctrl-Alt-Elite
+                team The Learning Architects
               </a>
             </p>
           </div>

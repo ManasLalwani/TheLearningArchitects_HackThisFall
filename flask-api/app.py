@@ -13,7 +13,7 @@ import openai
 app = Flask(__name__)
 # translator = Translator()
 CORS(app)
-openai.api_key = "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"
+openai.api_key = "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"
 
 # Path to the Tesseract executable (you may need to adjust this)
 pytesseract.pytesseract.tesseract_cmd = r'.\flask-backend\Tesseract-OCR\tesseract.exe'
