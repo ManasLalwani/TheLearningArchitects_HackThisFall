@@ -13,6 +13,7 @@ const HouseSaleAgreementForm = () => {
 
   const formData = useFormik({
     initialValues: {
+      value:"type5",
       type: "housesale",
       agreementState: "",
       agreementDate: "",

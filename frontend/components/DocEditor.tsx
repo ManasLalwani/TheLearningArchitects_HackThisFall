@@ -96,62 +96,62 @@ const DocEditor = ({ doc }) => {
     // pdf.html(content);
     // pdf.save("generated.pdf");
 
-    // console.log(content);
+//     // console.log(content);
 
-    var doc = new jsPDF("p", "pt", "a4");
+//     var doc = new jsPDF("p", "pt", "a4");
 
-    doc.html(
-      `<div style='font-size:11px; border:1px solid; background-color: rgb(239 240 240); padding: 50px 45px; width:28vw;'>${content}</div>`,
-      {
-        callback: function (doc) {
-          doc.save("generated.pdf");
-        },
-        x: 10,
-        y: 10,
-        margin: [10, 10, 10, 10],
-      }
-    );
-  };
+//     doc.html(
+//       `<div style='font-size:11px; border:1px solid; background-color: rgb(239 240 240); padding: 50px 45px; width:28vw;'>${content}</div>`,
+//       {
+//         callback: function (doc) {
+//           doc.save("generated.pdf");
+//         },
+//         x: 10,
+//         y: 10,
+//         margin: [10, 10, 10, 10],
+//       }
+//     );
+//   };
 
-  const generateTranslatedPdf = async () => {
-    // const formData = new FormData();
-    // formData.append("text", content.substring(1, content.length-1));
-    // formData.append("lang", "hi");
-    //   for (const value of formData.values()) {
-    //   console.log(value);
-    // }
-    //   return;
-    const requestData = {
-      text: content.substring(1, content.length - 1),
-      lang: "hi",
-    };
-    try {
-      // const response = await fetch("http://localhost:8000/convert-text", {
-      //   method: "POST",
-      //   headers: {
-      //     "Content-Type": "application/x-www-form-urlencoded",
-      //   },
-      //   body: JSON.stringify(requestData),
-      // });
-      // const data = await response.json();
-      // console.log(data.response);
+//   const generateTranslatedPdf = async () => {
+//     // const formData = new FormData();
+//     // formData.append("text", content.substring(1, content.length-1));
+//     // formData.append("lang", "hi");
+//     //   for (const value of formData.values()) {
+//     //   console.log(value);
+//     // }
+//     //   return;
+//     const requestData = {
+//       text: content.substring(1, content.length - 1),
+//       lang: "hi",
+//     };
+//     try {
+//       // const response = await fetch("http://localhost:8000/convert-text", {
+//       //   method: "POST",
+//       //   headers: {
+//       //     "Content-Type": "application/x-www-form-urlencoded",
+//       //   },
+//       //   body: JSON.stringify(requestData),
+//       // });
+//       // const data = await response.json();
+//       // console.log(data.response);
 
-      await axios({
-        method: "post",
-        url: "http://localhost:8000/convert-text",
-        data: requestData,
-        headers: { "Content-Type": "multipart/form-data" },
-      })
-        .then(function (response) {
-          //handle success
-          console.log(response);
-        })
-        .catch(function (response) {
-          //handle error
-          console.log(response);
-        });
+//       await axios({
+//         method: "post",
+//         url: "http://localhost:8000/convert-text",
+//         data: requestData,
+//         headers: { "Content-Type": "multipart/form-data" },
+//       })
+//         .then(function (response) {
+//           //handle success
+//           console.log(response);
+//         })
+//         .catch(function (response) {
+//           //handle error
+//           console.log(response);
+//         });
 
-      var doc = new jsPDF("p", "pt", "a4");
+//       var doc = new jsPDF("p", "pt", "a4");
 
       doc.html(
         `<div style='font-size:11px; border:1px solid; background-color: rgb(239 240 240); padding: 50px 45px; width:28vw;'>${content}</div>`,
@@ -210,19 +210,19 @@ const DocEditor = ({ doc }) => {
       });
   };
 
-  return (
-    <div>
-      <JoditEditor
-        ref={editor}
-        value={content}
-        // config={config}
-        // tabIndex={1} // tabIndex of textarea
-        // onBlur={(newContent) => setContent(newContent)} // preferred to use only this option to update the content for performance reasons
-        onChange={(newContent) => {
-          setContent(newContent);
-          // console.log(newContent);
-        }}
-      />
+//   return (
+//     <div>
+//       <JoditEditor
+//         ref={editor}
+//         value={content}
+//         // config={config}
+//         // tabIndex={1} // tabIndex of textarea
+//         // onBlur={(newContent) => setContent(newContent)} // preferred to use only this option to update the content for performance reasons
+//         onChange={(newContent) => {
+//           setContent(newContent);
+//           // console.log(newContent);
+//         }}
+//       />
 
       <div className="flex gap-10 pb-10">
         <button
@@ -394,7 +394,7 @@ const DocEditor = ({ doc }) => {
   );
 };
 
-export default DocEditor;
+// export default DocEditor;
 
 
 // use client";

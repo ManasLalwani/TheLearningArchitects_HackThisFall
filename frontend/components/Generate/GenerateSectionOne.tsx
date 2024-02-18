@@ -41,6 +41,8 @@ const GenerateSectionOne = () => {
         return <HouseSaleAgreementForm />;
       case "type6":
         return <FreelanceContractForm />;
+      case "type6":
+        return <FreelanceContractForm />;
       default:
         return null; // Render nothing if no option is selected
     }

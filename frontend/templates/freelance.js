@@ -1,7 +1,7 @@
 // freelanceContractTemplate.js
 export const freelanceContractFormat = `
 <p>
-This Freelance Services Agreement (the "Agreement") is made and entered into as of {agreementDate} (the "Effective Date") by and between {clientName} (the "Client"), located at {clientAddress}, and {freelancerName} (the "Freelancer"), located at {freelancerAddress}.
+This Freelance Services Agreement (the "Agreement") is made and entered into as of 11th February 2024 (the "Effective Date") by and between {clientName} (the "Client"), located at {clientAddress}, and {freelancerName} (the "Freelancer"), located at {freelancerAddress}.
 <br/><br/>
 1. Scope of Work:
    a. The Client hereby engages the Freelancer to provide {services} (the "Services") as described in Exhibit A attached hereto.
@@ -48,20 +48,6 @@ Freelancer,
 <br/>
 {freelancerAddress}
 <br/><br/>
-WITNESS ONE	
-<br/><br/>
 
-
-{witnessOneName}
-<br/>
-{witnessOneAddress}
-<br/><br/>
-WITNESS TWO
-<br/><br/>
-
-
-{witnessTwoName}
-<br/>
-{witnessTwoAddress}
 </p>
 `;
